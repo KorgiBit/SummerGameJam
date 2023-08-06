@@ -1,13 +1,19 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 public class Collectible : MonoBehaviour
 {
-    
     [SerializeField] private GameObject interactionButton;
     private bool _isInRange = false;
 
-
+    private Player _player;
+    private MushroomUI _mushroomText;
+    private void Awake()
+    {
+        _player = GameObject.Find("Player").GetComponent<Player>();
+        _mushroomText = GameObject.Find("Mushroom Count").GetComponent<MushroomUI>();
+    }
     private void Update()
     {
 
@@ -46,6 +52,9 @@ public class Collectible : MonoBehaviour
 
     private void Collect()
     {
+        _player.NumberOfPotions += 1;
+        _mushroomText.UpdateMushroomText(_player.NumberOfPotions);
        Destroy(gameObject);
+
     }
 }

@@ -19,6 +19,7 @@ public class Chest : MonoBehaviour
         {
             
             Open();
+            SpawnLoot();
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -49,5 +50,15 @@ public class Chest : MonoBehaviour
     private void Open()
     {
         _chestAnimation.SetBool("IsTouched", true);
+   
+
+    }
+    private void SpawnLoot()
+    {
+        float randomXOffset = Random.Range(-5f, 5f);
+        Vector3 spawnPosition = transform.position + new Vector3(randomXOffset, 0f, 0f);
+
+
+        Instantiate(_collectiblePrefab, spawnPosition, Quaternion.identity);
     }
 }

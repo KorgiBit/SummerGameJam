@@ -10,16 +10,24 @@ public class Player : MonoBehaviour
     private float _hp;
     private float _sanity;
     private float _power;
- 
+    private int _numberOfPotions { get; set ; }
+    public int NumberOfPotions
+    {
+        get { return _numberOfPotions; }
+        set { _numberOfPotions = value; }
+    }
+
     void Start()
     {
         _hp = maxHp;
         _sanity = maxSanity;
         _power = startPower;
+        _numberOfPotions = 0;
     }
 
     void Update()
     {
         
     }
+    
 }
