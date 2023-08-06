@@ -9,7 +9,7 @@ public class Collectible : MonoBehaviour
 
     [SerializeField] private Player _player;
     [SerializeField] private MushroomUI _mushroomText;
-    
+
     private void Update()
     {
 
@@ -22,14 +22,14 @@ public class Collectible : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Player player = other.GetComponent<Player>();
-        if (player) 
+        if (player)
         {
-            Debug.Log("entered"+ _isInRange);
+            Debug.Log("entered" + _isInRange);
 
             ShowInteractionButton();
             _isInRange = true;
         }
-        
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -39,7 +39,7 @@ public class Collectible : MonoBehaviour
 
     private void ShowInteractionButton()
     {
-        interactionButton.SetActive(true); 
+        interactionButton.SetActive(true);
     }
     private void HideInteractionButton()
     {
@@ -50,7 +50,7 @@ public class Collectible : MonoBehaviour
     {
         _player.NumberOfPotions += 1;
         _mushroomText.UpdateMushroomText(_player.NumberOfPotions);
-       Destroy(gameObject);
+        Destroy(gameObject);
 
     }
 }

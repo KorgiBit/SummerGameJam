@@ -7,6 +7,9 @@ using CMF;
 //It can be used as a starting point for a variety of top-down (or isometric) games, which are primarily controlled via mouse input;
 public class ClickToMoveController : Controller
 {
+	[SerializeField] private Player _player;
+	[SerializeField] private StateDisorientation _disorientation;
+
 	//Controller movement speed;
 	public float movementSpeed = 10f;
 	//Downward gravity;
@@ -16,7 +19,7 @@ public class ClickToMoveController : Controller
 	bool isGrounded = false;
 
 	//Current position to move towards;
-	Vector3 currentTargetPosition;
+	[SerializeField]Vector3 currentTargetPosition;
 	//If the distance between controller and target position is smaller than this, the target is reached;
 	float reachTargetThreshold = 0.001f;
 
@@ -200,7 +203,10 @@ public class ClickToMoveController : Controller
 				//Raycast against level geometry;
 				if(Physics.Raycast(_mouseRay, out _hit, 100f, raycastLayerMask, QueryTriggerInteraction.Ignore))
 				{
-					currentTargetPosition = _hit.point;
+					if (_player.playerState == StatePlayer.States.Disorientation)
+						currentTargetPosition = _disorientation.GetReverseCoordinates(_hit.point, tr.position);
+					else 
+						currentTargetPosition = _hit.point;
 					hasTarget = true;
 				}
 				else

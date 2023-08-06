@@ -6014,6 +6014,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionButton: {fileID: 6059585262285083809}
+  _player: {fileID: 9171256433961421731, guid: 2b9ee834208526843a93587c6c0e7acb, type: 3}
+  _mushroomText: {fileID: 2046654211864252647, guid: af19bbc4c8100e24bb4bde163ddc776c,
+    type: 3}
 --- !u!1 &5312760117791777558
 GameObject:
   m_ObjectHideFlags: 0

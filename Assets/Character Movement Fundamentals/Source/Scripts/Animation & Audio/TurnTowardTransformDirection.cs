@@ -27,7 +27,7 @@ namespace CMF
 				return;
 
 			//Calculate up and forward direction;
-			Vector3 _forwardDirection = Vector3.ProjectOnPlane(targetTransform.forward, parentTransform.up).normalized;
+			Vector3 _forwardDirection = -Vector3.ProjectOnPlane(targetTransform.forward, parentTransform.up).normalized;
 			Vector3 _upDirection = parentTransform.up;
 
 			//Set rotation;

@@ -8,6 +8,7 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private GameObject _gameObject;
     [SerializeField] private SkullMovement skullMovement;
+    [SerializeField] private Player _player;
 
     private Dictionary<int, string> _dialogs = new Dictionary<int, string>()
     {
@@ -15,7 +16,7 @@ public class DialogSystem : MonoBehaviour
         { 1, "Диалог 2"},
         { 2, "Диалог 3"}
     };
-    
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,8 +27,10 @@ public class DialogSystem : MonoBehaviour
         if (player != null)
         {
             _gameObject.SetActive(true);
-
-            _text.text = ShuffleLettersInWords(_dialogs[stage]);
+            if (_player.playerState == StatePlayer.States.Blindness)
+                _text.text = ShuffleLettersInWords(_dialogs[stage]);
+            else
+                _text.text = _dialogs[stage];
         }
     }
 

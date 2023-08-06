@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class StatePlayer
 {
-    enum States
+    public enum States
     {
-        Berserk,
+        Default,
         Disorientation,
         Blindness,
         Glitches
