@@ -7,15 +7,11 @@ public class Collectible : MonoBehaviour
     [SerializeField] private GameObject interactionButton;
     private bool _isInRange = false;
 
-    [SerializeField] private Player _player;
-    [SerializeField] private MushroomUI _mushroomText;
-
     private void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Space) && _isInRange)
         {
-            Debug.Log("Collected");
             Collect();
         }
     }
@@ -24,8 +20,6 @@ public class Collectible : MonoBehaviour
         Player player = other.GetComponent<Player>();
         if (player)
         {
-            Debug.Log("entered" + _isInRange);
-
             ShowInteractionButton();
             _isInRange = true;
         }
@@ -48,8 +42,7 @@ public class Collectible : MonoBehaviour
 
     private void Collect()
     {
-        _player.NumberOfPotions += 1;
-        _mushroomText.UpdateMushroomText(_player.NumberOfPotions);
+        MushroomPotionManager.Instance.NumberOfPotions++;
         Destroy(gameObject);
 
     }
