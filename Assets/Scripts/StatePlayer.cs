@@ -6,10 +6,10 @@ public class StatePlayer
 {
     public enum States
     {
-        Default,
-        Disorientation,
-        Blindness,
-        Glitches
+        Default = 0,
+        Disorientation = 1,
+        Blindness = 2,
+        Glitches = 3
     }
 
 }
