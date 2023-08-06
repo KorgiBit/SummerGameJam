@@ -15,9 +15,7 @@ public class StateController : MonoBehaviour
 
     private void Update()
     {
-        if (int.Parse(_mushroomText.text) > 3)
-            _player.playerState = states[rnd.Next(0, 2)];
-        if (int.Parse(_mushroomText.text) > 5)
+        if (int.Parse(_mushroomText.text) > 3 && _player.playerState == StatePlayer.States.Default)
             _player.playerState = states[rnd.Next(0, 2)];
     }
 }
