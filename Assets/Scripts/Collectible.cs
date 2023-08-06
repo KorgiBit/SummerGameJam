@@ -8,6 +8,14 @@ public class Collectible : MonoBehaviour
     private bool _isInRange = false;
 
 
+<<<<<<< Updated upstream
+=======
+    private void Start()
+    {
+        
+    }
+
+>>>>>>> Stashed changes
     private void Update()
     {
 
@@ -46,6 +54,12 @@ public class Collectible : MonoBehaviour
 
     private void Collect()
     {
+<<<<<<< Updated upstream
        Destroy(gameObject);
+=======
+        MushroomPotionManager.Instance.NumberOfPotions++;
+        Destroy(gameObject);
+
+>>>>>>> Stashed changes
     }
 }
