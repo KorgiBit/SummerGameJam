@@ -7,13 +7,9 @@ public class Collectible : MonoBehaviour
     [SerializeField] private GameObject interactionButton;
     private bool _isInRange = false;
 
-    private Player _player;
-    private MushroomUI _mushroomText;
-    private void Awake()
-    {
-        _player = GameObject.Find("Player").GetComponent<Player>();
-        _mushroomText = GameObject.Find("Mushroom Count").GetComponent<MushroomUI>();
-    }
+    [SerializeField] private Player _player;
+    [SerializeField] private MushroomUI _mushroomText;
+    
     private void Update()
     {
 
