@@ -7,6 +7,7 @@ public class DialogSystem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private GameObject _gameObject;
+    [SerializeField] private SkullMovement skullMovement;
 
     private Dictionary<int, string> _dialogs = new Dictionary<int, string>()
     {
@@ -20,6 +21,7 @@ public class DialogSystem : MonoBehaviour
     {
         Player player = other.gameObject.GetComponent<Player>();
         var stage = player.Stage;
+        skullMovement.canMove = true;
 
         if (player != null)
         {
